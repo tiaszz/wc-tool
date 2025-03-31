@@ -1,15 +1,20 @@
 package main
 
 import (
-	"flag"
 	"fmt"
+	"log"
+	"os"
+	//"github.com/tiaszz/wc-tool/cli"
 )
 
 func main() {
-	numberBytes := flag.Bool("c", false, "Get the number of bytes of a file")
-	numberLines := flag.Bool("l", false, "Get the number of lines of a file")
-	numberWords := flag.Bool("w", false, "Get the number of words of a file")
+	fmt.Println(readFile("test.txt"))
+}
 
-	flag.Parse()
-	fmt.Printf("%v\n%v\n%v\n", *numberBytes, *numberLines, *numberWords)
+func readFile(filename string) []byte {
+	input, err := os.ReadFile(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return input
 }
