@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	f := OpenFile("test.txt")
+	// f := OpenFile("test.txt")
 }

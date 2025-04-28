@@ -5,4 +5,4 @@ run: build
 	@./bin/wc
 
 test:
-	@go test -v ./...
+	@go test -v ./... --count=1
