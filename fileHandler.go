@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"io"
 	"log"
@@ -48,4 +49,21 @@ func LinesCount(file io.ReadCloser) int {
 			log.Fatal(err)
 		}
 	}
+}
+
+func CountWords(file io.ReadCloser) int {
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanWords)
+
+	count := 0
+
+	for scanner.Scan() {
+		count++
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	return count
 }
